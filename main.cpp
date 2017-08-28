@@ -23,19 +23,24 @@ typedef unsigned char uchar;
 struct Image {
 	int width;
 	int height;
+	int channel;
 	vector<uchar> data;
 
-	Image(int width, int height, const vector<uchar>& data = vector<uchar>()) : width(width), height(height), data(data) {
-		if (this->data.size() != width * height * 3) 
-			this->data.resize(width * height * 3);
+	Image(int height, int width, int channel = 3, const vector<uchar>& data = vector<uchar>()) 
+		: height(height)
+		, width(width)
+		, channel(channel)
+		, data(data) {
+		if (this->data.size() != height * width * channel) 
+			this->data.resize(height * width * channel);
 	}
 
 	uchar& operator () (int i, int j, int k) {
-		return data[k + j * 3 + i * width * 3];
+		return data[k + j * channel + i * width * channel];
 	}
 
 	const uchar& operator () (int i, int j, int k) const {
-		return data[k + j * 3 + i * width * 3];
+		return data[k + j * channel + i * width * channel];
 	}
 };
 
@@ -61,7 +66,7 @@ Image open(const string& filename) {
 	fread(&data[0], sizeof(uchar), data.size(), file);
 	fclose(file);
 
-	return Image(w, h, data);
+	return Image(h, w, 3, data);
 }
 
 void boxBlur(const Image& input, Image& output, int radius) {
@@ -95,7 +100,7 @@ void boxBlur(const Image& input, Image& output, int radius) {
 
 int main() {
 	auto img = open("E:/zju.ppm");
-	Image blurImage(img.width, img.height);
+	Image blurImage(img.height, img.width);
 
 	int r = 17;
 	boxBlur(img, blurImage, r);
