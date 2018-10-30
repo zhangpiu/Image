@@ -3,3 +3,7 @@ This is a PPM encoder and decoder written by C++. The formats of PPM(Portable Pi
 
 # Example
 A `boxBlur` function has been implenmented based on the simple PPM reader.
+
+| original   | blurred       |
+| ---------- | :-----------: |
+| ![](https://github.com/zhangpiu/PPM-Image/blob/master/images/zju.jpg?raw=true)      | ![](https://github.com/zhangpiu/PPM-Image/blob/master/images/out.jpg?raw=true)         |
