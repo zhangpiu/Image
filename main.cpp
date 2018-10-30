@@ -99,12 +99,12 @@ void boxBlur(const Image& input, Image& output, int radius) {
 }
 
 int main() {
-	auto img = open("E:/zju.ppm");
+	auto img = open("zju.ppm");
 	Image blurImage(img.height, img.width);
 
 	int r = 17;
 	boxBlur(img, blurImage, r);
-	save(blurImage, "E:/out.ppm");
+	save(blurImage, "out.ppm");
 
 	return 0;
 }
