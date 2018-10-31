@@ -3,6 +3,10 @@ This is a PPM encoder and decoder written by C++. The formats of PPM(Portable Pi
 
 # Example
 A `boxBlur` function has been implenmented based on the simple PPM reader and `Image` struct.
+``` bash
+$ g++ --std=c++11 main.cpp -o main
+$ ./main zju.ppm out.ppm 17
+```
 
 | original   | blurred       |
 | ---------- | :-----------: |
