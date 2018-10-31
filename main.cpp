@@ -98,13 +98,18 @@ void boxBlur(const Image& input, Image& output, int radius) {
 	}
 }
 
-int main() {
-	auto img = open("zju.ppm");
+int main(int argc, char* argv[]) {
+	if (argc < 4) {
+		printf("Please input valid arguments, for example: main input.ppm output.ppm 3\n");
+		return -1;
+	}
+
+	auto img = open(argv[1]);
 	Image blurImage(img.height, img.width);
 
-	int r = 17;
+	int r = atoi(argv[3]);
 	boxBlur(img, blurImage, r);
-	save(blurImage, "out.ppm");
+	save(blurImage, argv[2]);
 
 	return 0;
 }
