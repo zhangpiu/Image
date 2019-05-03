@@ -1,5 +1,5 @@
 # Overview
-This is a PPM encoder and decoder written by C++. The formats of PPM(Portable PixMap), PGM(Portable GreyMap), PBM(Portable BitMap) are a convenient(simple) method of saving image data. Please refer http://paulbourke.net/dataformats/ppm/ for more information.
+This is a PPM encoder and decoder written in C++. The formats of PPM(Portable PixMap), PGM(Portable GreyMap), PBM(Portable BitMap) are a convenient(simple) method of saving image data. Please refer http://paulbourke.net/dataformats/ppm/ for more information.
 
 # Example
 A `boxBlur` function has been implenmented based on the simple PPM reader and `Image` struct.
